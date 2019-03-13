@@ -1,41 +1,6 @@
-# Self-Directed Front-End Start Kit
+## Started from the bottom
+<img width="1429" alt="Screen Shot 2019-03-12 at 10 04 27 PM" src="https://user-images.githubusercontent.com/42391567/54253754-42926c00-4516-11e9-8aa1-05bdbf16ac6f.png">
 
-## Initial Setup
-
-1. Clone this starter kit repository and rename the repository to anything you'd like in one command:
-
-  ```shell
-  git clone git@github.com:turingschool-projects/self-directed-fe-starter.git <name of your choice>
-  ```
-2. Change into the new director directory.
-
-3. Remove the default remote (origin):
-
-  ```shell
-  git remote rm origin
-  ```
-
-4. Create a new repository on GitHub.
-
-5. Add your new repository remote - **your remote URL and user name will be different in the command below**
-
-  ```shell
-  git remote add origin git@github.com:<YOUR GITHUB NAME>/<PROJECT NAME>.git
-  ```
-
-6. Install the dependencies of the starter kit:
-
-  ```shell
-  npm install
-  ```
-
-7. Add, commit, and push up to your repository:
-
-  ```shell
-  git add .
-  git commit -m "Initial commit using starter kit"
-  git push origin master
-  ```
 
 ## Running the Server Locally
 
