@@ -7,6 +7,7 @@ h1  {
   font-size: 4rem;
   margin: 0;
 }
+
 h2  {
   text-align: left;
   border-bottom: 1px solid white;
@@ -19,6 +20,7 @@ h2  {
   color: white;
   justify-content: space-between;
 }
+
 .currentTemp  {
   color: white;
   font-size: 5rem;
@@ -29,10 +31,12 @@ h2  {
   font-size: 2rem;
   color: white;
 }
+
 .main {
   display: flex;
   justify-content: space-around;
 }
+
 .currentDetails {
   text-align: right;
   border: 1px solid white;
@@ -40,6 +44,7 @@ h2  {
   color: white;
   padding: 1rem;
 }
+
 .forecastDetails {
   justify-content: space-around;
   border: 1px solid white;
@@ -47,6 +52,7 @@ h2  {
   color: white;
   padding: 1rem;
 }
+
 .currentFeels, .currentHumidity, .currentVisibility, .currentUvIndex {
   padding: 1rem;
   border-bottom: 1px solid white;
