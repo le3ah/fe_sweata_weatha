@@ -96,6 +96,39 @@
 	      $(".plusSevenHourTime").html(hourlyWeather[7]["hourly_time"]);
 	      $(".plusSevenHourTemp").html(hourlyWeather[7]["hourly_temperature"] + "°");
 	      $(".plusSevenHourIcon").html(hourlyWeather[7]["hourly_icon"]);
+
+	      var dailyWeather = data["data"]["attributes"]["daily"];
+	      $(".todaySummary").html("Today - " + dailyWeather[0]["today_summary"]);
+	      $(".todayPrecip").html(dailyWeather[0]["precip_probability"] + "%");
+	      $(".todayPrecipType").html(dailyWeather[0]["precip_type"]);
+	      $(".todayHigh").html(dailyWeather[0]["temperature_high"] + "°");
+	      $(".todayLow").html(dailyWeather[0]["temperature_low"] + "°");
+	      $(".todayTime").html(dailyWeather[0]["time"]);
+	      $(".todayPlusOnePrecip").html(dailyWeather[1]["precip_probability"] + "%");
+	      $(".todayPlusOnePrecipType").html(dailyWeather[1]["precip_type"]);
+	      $(".todayPlusOneHigh").html(dailyWeather[1]["temperature_high"] + "°");
+	      $(".todayPlusOneLow").html(dailyWeather[1]["temperature_low"] + "°");
+	      $(".todayPlusOneTime").html(dailyWeather[1]["time"]);
+	      $(".todayPlusTwoPrecip").html(dailyWeather[2]["precip_probability"] + "%");
+	      $(".todayPlusTwoPrecipType").html(dailyWeather[2]["precip_type"]);
+	      $(".todayPlusTwoHigh").html(dailyWeather[2]["temperature_high"] + "°");
+	      $(".todayPlusTwoLow").html(dailyWeather[2]["temperature_low"] + "°");
+	      $(".todayPlusTwoTime").html(dailyWeather[2]["time"]);
+	      $(".todayPlusThreePrecip").html(dailyWeather[3]["precip_probability"] + "%");
+	      $(".todayPlusThreePrecipType").html(dailyWeather[3]["precip_type"]);
+	      $(".todayPlusThreeHigh").html(dailyWeather[3]["temperature_high"] + "°");
+	      $(".todayPlusThreeLow").html(dailyWeather[3]["temperature_low"] + "°");
+	      $(".todayPlusThreeTime").html(dailyWeather[3]["time"]);
+	      $(".todayPlusFourPrecip").html(dailyWeather[4]["precip_probability"] + "%");
+	      $(".todayPlusFourPrecipType").html(dailyWeather[4]["precip_type"]);
+	      $(".todayPlusFourHigh").html(dailyWeather[4]["temperature_high"] + "°");
+	      $(".todayPlusFourLow").html(dailyWeather[4]["temperature_low"] + "°");
+	      $(".todayPlusFourTime").html(dailyWeather[4]["time"]);
+	    });
+
+	    $.get("https://sweata-weatha.herokuapp.com/api/v1/backgrounds?location=" + cityState, function (data, status) {
+	      var backgroundImage = data["data"]["attributes"]["background_url"];
+	      $("body").css('background-image', "url(" + backgroundImage + ")");
 	    });
 	  });
 	});
@@ -135,7 +168,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #8FC0A9; }\n\nh1 {\n  color: white;\n  font-size: 4rem;\n  margin: 0; }\n\nh2 {\n  text-align: left;\n  border-bottom: 1px solid white; }\n\n.currently {\n  width: 5rem;\n  display: flex;\n  align-content: left;\n  color: white;\n  justify-content: space-between; }\n\n.currentTemp {\n  color: white;\n  font-size: 5rem; }\n\n.currentSummary {\n  padding-top: 3rem;\n  font-size: 2rem;\n  color: white; }\n\n.main {\n  display: flex;\n  justify-content: space-around; }\n\n.currentDetails {\n  text-align: right;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem; }\n\n.forecastDetails {\n  justify-content: space-around;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem; }\n\n.currentFeels, .currentHumidity, .currentVisibility, .currentUvIndex {\n  padding: 1rem;\n  border-bottom: 1px solid white; }\n\n.hourlyTime, .hourlyTemps {\n  display: flex;\n  justify-content: space-around; }\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #8FC0A9;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-attachment: fixed; }\n\nh1 {\n  color: white;\n  font-size: 4rem;\n  margin: 0; }\n\nh2 {\n  text-align: left;\n  border-bottom: 1px solid white; }\n\n.currently {\n  width: 5rem;\n  display: flex;\n  align-content: left;\n  color: white;\n  justify-content: space-between; }\n\n.currentTemp {\n  color: white;\n  font-size: 5rem; }\n\n.currentSummary {\n  padding-top: 3rem;\n  font-size: 2rem;\n  color: white; }\n\n.main {\n  display: flex;\n  justify-content: space-around; }\n\n.currentDetails {\n  text-align: right;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem; }\n\n.forecastDetails {\n  justify-content: space-around;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem; }\n\n.currentFeels, .currentHumidity, .currentVisibility, .currentUvIndex {\n  padding: 1rem;\n  border-bottom: 1px solid white; }\n\n.hourlyTime, .hourlyTemps {\n  display: flex;\n  justify-content: space-around; }\n\n.dayContainer, .precipContainer, .precipTypeContainer, .highContainer, .lowContainer {\n  display: flex;\n  flex-direction: column; }\n\n.todaySummary {\n  font-size: 1.5rem; }\n\n.dailyData {\n  display: flex;\n  justify-content: space-around;\n  font-size: 1.5rem; }\n", ""]);
 
 	// exports
 
