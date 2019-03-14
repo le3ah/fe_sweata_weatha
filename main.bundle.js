@@ -131,6 +131,28 @@
 	      $("body").css('background-image', "url(" + backgroundImage + ")");
 	    });
 	  });
+
+	  $("#addFavoriteBtn").click(function () {
+	    event.preventDefault();
+	    postFavorites();
+	  });
+
+	  var postFavorites = function postFavorites() {
+	    var cityState = $("#locationInfo").val();
+	    fetch("https://sweata-weatha.herokuapp.com/api/v1/favorites", {
+	      method: 'POST',
+	      headers: { 'Content-Type': 'application/json' },
+	      body: JSON.stringify({
+	        "location": cityState,
+	        "api_key": "7fcf627347f825283483"
+	      })
+	    }).then(function (response) {
+	      return response.status;
+	    }).catch(function (error) {
+	      return console.error({ error: error });
+	    });
+	    console.log("adding a favorite now!");
+	  };
 	});
 
 /***/ }),
