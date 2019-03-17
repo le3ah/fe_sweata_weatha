@@ -4,7 +4,7 @@
 This is a frontend-only project and was my first deep dive in jQuery, so be kind!
 
 ## Started from the bottom
-<img width="1429" alt="Screen Shot 2019-03-12 at 10 04 27 PM" src="https://user-images.githubusercontent.com/42391567/54253754-42926c00-4516-11e9-8aa1-05bdbf16ac6f.png">
+<img width="340" alt="Screen Shot 2019-03-17 at 3 52 45 PM" src="https://user-images.githubusercontent.com/42391567/54498424-c78dd480-48cc-11e9-9a51-519d904014f1.png">
 
 ## Now we're here
 <img width="1430" alt="Screen Shot 2019-03-17 at 3 05 41 PM" src="https://user-images.githubusercontent.com/42391567/54497979-c35eb880-48c6-11e9-9b31-c0dfc68a0640.png">
