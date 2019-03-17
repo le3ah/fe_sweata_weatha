@@ -1,3 +1,5 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/le3ah/fe_sweata_weatha.svg?columns=all)](https://waffle.io/le3ah/fe_sweata_weatha)
+
 ## Sweata Weatha
 This is a frontend-only project and was my first deep dive in jQuery, so be kind!
 
