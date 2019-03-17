@@ -21,16 +21,16 @@ npm start
 
 Once the server is running, visit in your browser:
 
-(http://localhost:8080/) to run your application.
+http://localhost:8080/ to run your application.
 
 
 ## GitHub Deployment
 You can visit this site in production at
-(https://le3ah.github.io/fe_sweata_weatha/)
+https://le3ah.github.io/fe_sweata_weatha/
 
 ## Backend Data
 This project was originally backend only.  You can see the original backend work at
-(https://sweata-weatha.herokuapp.com/)
+https://sweata-weatha.herokuapp.com/
 
 ## Code Sneak Peek
 I practiced with AJAX and Fetch calls in this project, and for an example look at some of the code, please see the following:
