@@ -48,13 +48,8 @@
 
 	__webpack_require__(1);
 
-	// $.get('https://sweata-weatha.herokuapp.com/api/v1/forecast?location=denver,co', function(data, status){
-	//   window.alert(`${status}`)
-	// })
-
-
 	$(document).ready(function () {
-
+	  $("#deleteLocationBtn").hide();
 	  $("#getWeatherBtn").click(function () {
 	    event.preventDefault();
 	    var cityState = $("#locationInfo").val();
@@ -124,6 +119,7 @@
 	      $(".todayPlusFourHigh").html(dailyWeather[4]["temperature_high"] + "°");
 	      $(".todayPlusFourLow").html(dailyWeather[4]["temperature_low"] + "°");
 	      $(".todayPlusFourTime").html(dailyWeather[4]["time"]);
+	      displayFavorites();
 	    });
 
 	    $.get("https://sweata-weatha.herokuapp.com/api/v1/backgrounds?location=" + cityState, function (data, status) {
@@ -135,6 +131,8 @@
 	  $("#addFavoriteBtn").click(function () {
 	    event.preventDefault();
 	    postFavorites();
+	    displayFavorites();
+	    $("#deleteLocationBtn").show();
 	  });
 
 	  var postFavorites = function postFavorites() {
@@ -144,7 +142,7 @@
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({
 	        "location": cityState,
-	        "api_key": "7fcf627347f825283483"
+	        "api_key": "79ce1d358a436822b0ce"
 	      })
 	    }).then(function (response) {
 	      return response.status;
@@ -152,7 +150,107 @@
 	      return console.error({ error: error });
 	    });
 	    console.log("adding a favorite now!");
+	    window.alert("You've just added " + cityState + " to your favorites!");
+
+	    displayFavorites();
 	  };
+	  var displayFavorites = function displayFavorites() {
+	    $.get("https://sweata-weatha.herokuapp.com/api/v1/favorites?api_key=79ce1d358a436822b0ce", function (data, status) {
+	      var favorites = data["data"]["attributes"]["favorites"];
+	      if (favorites[10]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	        $(".favorites7").html(favorites[6]["location"]);
+	        $(".favorites8").html(favorites[7]["location"]);
+	        $(".favorites7").html(favorites[8]["location"]);
+	        $(".favorites8").html(favorites[9]["location"]);
+	        $(".favorites9").html(favorites[10]["location"]);
+	      } else if (favorites[9]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	        $(".favorites7").html(favorites[6]["location"]);
+	        $(".favorites8").html(favorites[7]["location"]);
+	        $(".favorites7").html(favorites[8]["location"]);
+	        $(".favorites8").html(favorites[9]["location"]);
+	      } else if (favorites[8]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	        $(".favorites7").html(favorites[6]["location"]);
+	        $(".favorites8").html(favorites[7]["location"]);
+	        $(".favorites7").html(favorites[8]["location"]);
+	      } else if (favorites[7]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	        $(".favorites7").html(favorites[6]["location"]);
+	        $(".favorites8").html(favorites[7]["location"]);
+	      } else if (favorites[6]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	        $(".favorites7").html(favorites[6]["location"]);
+	      } else if (favorites[5]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	        $(".favorites6").html(favorites[5]["location"]);
+	      } else if (favorites[4]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	        $(".favorites5").html(favorites[4]["location"]);
+	      } else if (favorites[3]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	        $(".favorites4").html(favorites[3]["location"]);
+	      } else if (favorites[2]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	        $(".favorites3").html(favorites[2]["location"]);
+	      } else if (favorites[1]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	        $(".favorites2").html(favorites[1]["location"]);
+	      } else if (favorites[0]) {
+	        $(".favorites1").html(favorites[0]["location"]);
+	      } else {
+	        $(".favoritesMessage").html("You don't have any favorite locations");
+	      }
+	    });
+	  };
+	  $("#deleteLocationBtn").click(function () {
+	    event.preventDefault();
+	    $("#deleteLocationBtn").hide();
+	    var cityState = $("#locationInfo").val();
+	    $.ajax({
+	      url: "https://sweata-weatha.herokuapp.com/api/v1/favorites?location=" + cityState + "&api_key=79ce1d358a436822b0ce&",
+	      type: 'DELETE',
+	      success: function success(data, status) {
+	        window.alert("You've just removed " + data["location"] + " from your favorites!");
+	      }
+	    });
+	  });
 	});
 
 /***/ }),
@@ -190,7 +288,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #8FC0A9;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-attachment: fixed;\n  font-family: Arial; }\n\nh1 {\n  color: white;\n  font-size: 4rem;\n  margin: 0; }\n\nh2 {\n  text-align: left;\n  border-bottom: 1px solid white; }\n\n.currently {\n  width: 5rem;\n  display: flex;\n  align-content: left;\n  color: white;\n  justify-content: space-between; }\n\n.currentTemp {\n  color: white;\n  font-size: 5rem; }\n\n.currentSummary {\n  padding-top: 3rem;\n  font-size: 2rem;\n  color: white; }\n\n.main {\n  display: flex;\n  justify-content: space-around; }\n\n.currentDetails {\n  text-align: right;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(74, 124, 89, 0.8); }\n\n.forecastDetails {\n  justify-content: space-around;\n  border: 1px solid white;\n  width: 45%;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(74, 124, 89, 0.8); }\n\n.currentFeels, .currentHumidity, .currentVisibility, .currentUvIndex {\n  padding: 1rem;\n  border-bottom: 1px solid white; }\n\n.hourlyTime, .hourlyTemps {\n  display: flex;\n  justify-content: space-around; }\n\n.hourlyTemps {\n  border-bottom: 1px solid white; }\n\n.dayContainer, .precipContainer, .precipTypeContainer, .highContainer, .lowContainer {\n  display: flex;\n  flex-direction: column; }\n\n.todaySummary {\n  font-size: 1.5rem; }\n\n.dailyData {\n  display: flex;\n  justify-content: space-around;\n  font-size: 1.5rem; }\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #8FC0A9;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-attachment: fixed;\n  font-family: Arial; }\n\nh1 {\n  color: white;\n  font-size: 4rem;\n  margin: 0; }\n\nh2 {\n  text-align: left;\n  border-bottom: 1px solid white; }\n\n.currently {\n  width: 5rem;\n  display: flex;\n  align-content: left;\n  color: white;\n  justify-content: space-between; }\n\n.currentTemp {\n  color: white;\n  font-size: 5rem; }\n\n.currentSummary {\n  padding-top: 3rem;\n  font-size: 2rem;\n  color: white; }\n\n.main {\n  display: flex;\n  justify-content: space-around; }\n\n.currentDetails {\n  text-align: right;\n  border: 1px solid white;\n  width: 36%;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(74, 124, 89, 0.8); }\n\n.favorites-wrapper {\n  display: flex;\n  justify-content: space-around; }\n\n.favorites {\n  justify-content: space-around;\n  border: 1px solid white;\n  width: 15%;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(74, 124, 89, 0.8); }\n\n.forecastDetails {\n  justify-content: space-around;\n  border: 1px solid white;\n  width: 36%;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(74, 124, 89, 0.8); }\n\n.currentFeels, .currentHumidity, .currentVisibility, .currentUvIndex {\n  padding: 1rem;\n  border-bottom: 1px solid white; }\n\n.hourlyTime, .hourlyTemps {\n  display: flex;\n  justify-content: space-around; }\n\n.hourlyTemps {\n  border-bottom: 1px solid white; }\n\n.dayContainer, .precipContainer, .precipTypeContainer, .highContainer, .lowContainer {\n  display: flex;\n  flex-direction: column; }\n\n.todaySummary {\n  font-size: 1.5rem; }\n\n.dailyData {\n  display: flex;\n  justify-content: space-around;\n  font-size: 1.5rem; }\n", ""]);
 
 	// exports
 
