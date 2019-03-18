@@ -50,8 +50,10 @@
 
 	$(document).ready(function () {
 	  $("#deleteLocationBtn").hide();
+	  $("#addFavoriteBtn").hide();
 	  $("#getWeatherBtn").click(function () {
 	    event.preventDefault();
+	    $("#addFavoriteBtn").show();
 	    var cityState = $("#locationInfo").val();
 	    $.get("https://sweata-weatha.herokuapp.com/api/v1/forecast?location=" + cityState, function (data, status) {
 	      // window.alert(data["data"]["attributes"]["currently"]["current_temperature"])
@@ -59,7 +61,7 @@
 	      $(".locationInfo").html(cityState.slice(0, -3));
 	      $(".currentTemp").html(currentWeather["current_temperature"] + "°");
 	      $(".currentSummary").html(currentWeather["summary"]);
-	      $(".currentTime").html(currentWeather["current_time"]);
+	      $(".currentTime").html(currentWeather["current_time"] + " UTC");
 	      $(".currentDate").html(currentWeather["date"]);
 	      $(".currentFeels").html("Feels-like temperature: " + currentWeather["feels_like"] + "°");
 	      $(".currentHumidity").html("Humidity: " + currentWeather["humidity"]);
